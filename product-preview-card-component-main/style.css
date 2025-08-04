@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --green-500: hsl(158, 36%, 37%);
+  --green-700: hsl(158, 42%, 18%);
+  --black: hsl(212, 21%, 14%);
+  --grey: hsl(228, 12%, 48%);
+  --cream: hsl(30, 38%, 92%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--cream);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  padding: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.img {
+  flex: 1;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.content {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content h6:first-child {
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.content h1 {
+  font-family: "Montserrat", serif;
+  line-height: 1.7rem;
+}
+.para {
+  font-family: "Fraunces", serif;
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  color: var(--grey);
+}
+.prices {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Montserrat", serif;
+  color: var(--green-500);
+}
+.prices span:first-child {
+  font-size: 2rem;
+  font-weight: 1000;
+}
+.prices span:nth-child(2) {
+  text-decoration: line-through;
+  text-decoration-color: var(--grey);
+
+  font-size: 0.8rem;
+}
+button {
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: var(--white);
+  background-color: var(--green-500);
+}
+
+@media (max-width: 375px) {
+  .container {
+    flex-direction: column;
+  }
+  .content {
+    gap: 1rem;
+  }
+}
