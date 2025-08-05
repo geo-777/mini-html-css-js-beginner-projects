@@ -94,7 +94,8 @@ body {
       "supervisor team calculator"
       "supervisor karma calculator";
     align-items: center;
-    max-width: 1440px;
+    max-width: 1100px;
+    margin: 0 auto;
   }
   .supervisor {
     grid-area: supervisor;
@@ -112,10 +113,23 @@ body {
     grid-area: calculator;
   }
 }
-@media (min-width: 1440px) {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
+
+/* 🔍 The Concept
+css
+Copy
+Edit
+margin: 0 auto;
+margin: 0 auto is shorthand for:
+
+css
+Copy
+Edit
+margin-top: 0;
+margin-right: auto;
+margin-bottom: 0;
+margin-left: auto;
+So the horizontal margins (left and right) are set to auto.
+
+When an element has a fixed width (or a max-width), setting margin-left: auto and margin-right: auto tells the browser:
+
+“Take the remaining horizontal space and split it equally on both sides.” */
