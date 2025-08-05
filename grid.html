@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>auto-fill vs auto-fit</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        font-family: sans-serif;
+        background: #f0f0f0;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .wrapper {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .box {
+        flex: 1 1 400px;
+        background: white;
+        padding: 1rem;
+        border: 2px solid #000;
+      }
+
+      .label {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(120px, 1fr)
+        ); /* default is auto-fit */
+        gap: 10px;
+      }
+
+      .fill .grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+
+      .item {
+        background: #90cdf4;
+        border: 2px solid #2b6cb0;
+        text-align: center;
+        padding: 1.2rem;
+        font-size: 1.2rem;
+        border-radius: 6px;
+        transition: transform 0.2s ease;
+      }
+
+      .item:hover {
+        transform: scale(1.05);
+        background: #63b3ed;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>
+      🔍 Comparing <code>auto-fill</code> vs <code>auto-fit</code> (Resize the
+      screen)
+    </h2>
+
+    <div class="wrapper">
+      <!-- AUTO-FILL -->
+      <div class="box fill">
+        <div class="label">🔒 auto-fill</div>
+        <div class="grid">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+        </div>
+      </div>
+
+      <!-- AUTO-FIT -->
+      <div class="box">
+        <div class="label">🔓 auto-fit</div>
+        <div class="grid">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
