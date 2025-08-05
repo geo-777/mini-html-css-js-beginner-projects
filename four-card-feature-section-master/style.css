@@ -113,7 +113,12 @@ body {
     grid-area: calculator;
   }
 }
-
+@media screen and (min-width: 391px) and (max-width: 900px) {
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
 /* 🔍 The Concept
 css
 Copy
