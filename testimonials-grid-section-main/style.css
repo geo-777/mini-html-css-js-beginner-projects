@@ -1,0 +1,158 @@
+:root {
+  /* ===== Purple Shades ===== */
+  --purple-50: hsl(260, 100%, 95%);
+  --purple-300: hsl(264, 82%, 80%);
+  --purple-500: hsl(263, 55%, 52%);
+
+  /* ===== Neutral Colors ===== */
+  --white: hsl(0, 0%, 100%);
+  --grey-100: hsl(214, 17%, 92%);
+  --grey-200: hsl(0, 0%, 81%);
+  --grey-400: hsl(224, 10%, 45%);
+  --grey-500: hsl(217, 19%, 35%);
+  --dark-blue: hsl(219, 29%, 14%);
+  --black: hsl(0, 0%, 7%);
+}
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--grey-100);
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 200;
+  padding: 2rem 1rem;
+}
+.item {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 0.3rem;
+  font-size: 13px;
+  box-shadow: 1px -1px 19px 4px rgba(0, 0, 0, 0.1);
+}
+.container {
+  display: grid;
+  max-width: 300px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+.profile-container {
+  display: flex;
+  gap: 0.8rem;
+}
+.profile-pic {
+  border-radius: 50%;
+  height: 2rem;
+}
+.profile-text {
+  line-height: 0.9rem;
+}
+
+.profile-pic {
+  border: 2px solid var(--purple-300);
+  z-index: 1;
+}
+.purple h6 {
+  color: var(--purple-300);
+  z-index: 1;
+}
+.purple {
+  position: relative;
+  background-color: var(--purple-500);
+  z-index: -1;
+}
+.quote {
+  position: absolute;
+  z-index: 0;
+  right: 3rem;
+  top: 0rem;
+  visibility: hidden;
+}
+.purple h2,
+.purple p {
+  z-index: 1;
+  color: var(--white);
+}
+
+.grey img {
+  border: 2px solid var(--grey-200);
+}
+.grey h6 {
+  color: var(--grey-200);
+}
+.grey {
+  background-color: var(--grey-500);
+}
+.grey h2 {
+  color: var(--white);
+}
+.grey p {
+  color: var(--grey-200);
+}
+
+.white h6,
+.white h2,
+.white2 h6,
+.white2 h2 {
+  color: var(--grey-500);
+}
+.white,
+.white2 {
+  background-color: var(--white);
+}
+
+.white p,
+.white2 p {
+  color: var(--grey-400);
+}
+.black img {
+  border: 2px solid var(--purple-500);
+}
+.black {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+@media (min-width: 900px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    display: grid;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    gap: 1.5rem;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "janet patrick patrick kira";
+  }
+  .purple {
+    grid-area: daniel;
+  }
+  .grey {
+    grid-area: jonathan;
+  }
+  .white2 {
+    grid-area: kira;
+  }
+  .white {
+    grid-area: janet;
+  }
+  .black {
+    grid-area: patrick;
+  }
+  .quote {
+    visibility: visible;
+  }
+}
