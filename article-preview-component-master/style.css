@@ -1,0 +1,162 @@
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--very-dark-grayish-blue);
+  background-color: var(--light-grayish-blue);
+}
+
+main {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.image-container img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 1rem 2rem;
+  gap: 1rem;
+}
+
+.profile-container {
+  display: flex;
+  gap: 1rem;
+  font-size: 10px;
+  align-items: center;
+}
+
+.profile-pic img {
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.profile-text {
+  min-width: 120px;
+}
+.share-btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.share-btn button {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--light-grayish-blue);
+  transition: all 0.2s ease-in;
+}
+
+.share-btn button:hover {
+  cursor: pointer;
+  border: 1px solid #70849c;
+}
+
+.share-box {
+  background-color: var(--very-dark-grayish-blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 0 0 1rem 1rem;
+  font-size: 12px;
+  position: relative;
+}
+
+.share-box p {
+  letter-spacing: 5px;
+  color: var(--grayish-blue);
+}
+
+.share-box img {
+  cursor: pointer;
+}
+
+.share-box .share-btn button {
+  background-color: var(--light-grayish-blue);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Tooltip style for desktop */
+@media (min-width: 850px) {
+  .container {
+    flex-direction: row;
+    max-width: 700px;
+    height: 300px;
+  }
+
+  .image-container {
+    flex: 1;
+  }
+
+  .image-container img {
+    height: 100%;
+  }
+
+  .article-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  .share-box {
+    position: absolute;
+    bottom: 80px;
+    right: 0px;
+    border-radius: 10px;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .share-box::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: 40px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--very-dark-grayish-blue);
+  }
+
+  .share-box .share-btn {
+    display: none;
+  }
+}

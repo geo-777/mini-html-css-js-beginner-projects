@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Article preview component</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="image-container">
+          <img
+            src="./images/drawers.jpg"
+            alt="Furniture drawers in a modern room"
+          />
+        </div>
+
+        <div class="article-container">
+          <h2>
+            Shift the overall look and feel by adding these wonderful touches to
+            furniture in your home
+          </h2>
+          <p>
+            Ever been in a room and felt like something was missing? Perhaps it
+            felt slightly bare and uninviting. I’ve got some simple tips to help
+            you make any room feel complete.
+          </p>
+
+          <div class="profile-share-wrapper">
+            <div class="profile-container" id="profileContainer">
+              <div class="profile-pic">
+                <img
+                  src="images/avatar-michelle.jpg"
+                  alt="Avatar of Michelle"
+                />
+              </div>
+              <div class="profile-text">
+                <h3 style="font-weight: 1000">Michelle Appleton</h3>
+                <h3 style="font-weight: 300">28 Jun 2020</h3>
+              </div>
+              <div class="share-btn">
+                <button id="shareBtn">
+                  <img src="images/icon-share.svg" alt="Share icon" />
+                </button>
+              </div>
+            </div>
+
+            <div class="share-box hidden" id="shareBox">
+              <p>SHARE</p>
+              <img src="images/icon-facebook.svg" alt="Facebook" />
+              <img src="images/icon-twitter.svg" alt="Twitter" />
+              <img src="images/icon-pinterest.svg" alt="Pinterest" />
+              <div class="share-btn active">
+                <button id="shareBtnActive">
+                  <img
+                    src="images/icon-share.svg"
+                    alt="Share icon active"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script >
+      const shareBtn = document.getElementById("shareBtn");
+const shareBox = document.getElementById("shareBox");
+const profileContainer = document.getElementById("profileContainer");
+const shareBtnActive = document.getElementById("shareBtnActive");
+
+function toggleShare() {
+  const isMobile = window.innerWidth < 850;
+
+  if (isMobile) {
+    shareBox.classList.toggle("hidden");
+    profileContainer.classList.toggle("hidden");
+  } else {
+    shareBox.classList.toggle("hidden");
+  }
+}
+
+shareBtn.addEventListener("click", toggleShare);
+
+if (shareBtnActive) {
+  shareBtnActive.addEventListener("click", toggleShare);
+}
+
+    </script>
+  </body>
+</html>
