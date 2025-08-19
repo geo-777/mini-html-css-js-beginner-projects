@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>FM | Newsletter</title>
+  </head>
+  <body>
+    <!-- Sign-up form start -->
+    <main>
+      <div id="main-container" class="form-container">
+        <div class="left">
+          <h2>Stay updated!</h2>
+          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          <ul>
+            <li>
+              <img src="assets/images/icon-list.svg" alt="" /> Product discovery
+              and building what matters
+            </li>
+            <li>
+              <img src="assets/images/icon-list.svg" alt="" /> Measuring to
+              ensure updates are a success
+            </li>
+            <li>
+              <img src="assets/images/icon-list.svg" alt="" /> And much more!
+            </li>
+          </ul>
+          <form novalidate id="form">
+            <div class="error-handler">
+              <label for="email">Email Address</label>
+              <p id="error-msg" class="hidden error-msg" id="error-msg">
+                Valid Email Required
+              </p>
+            </div>
+            <input
+              class="email"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="email@company.com"
+            />
+            <input
+              class="submit-btn"
+              type="submit"
+              value="Subscribe to monthly newsletter"
+            />
+          </form>
+        </div>
+        <div class="right">
+          <picture class="pic">
+            <!-- Phones -->
+            <source
+              class="pic"
+              srcset="assets\images\illustration-sign-up-mobile.svg"
+              media="(max-width: 600px)"
+            />
+
+            <!-- Default for desktops -->
+            <img
+              class="pic"
+              src="assets\images\illustration-sign-up-desktop.svg"
+              alt="Responsive image"
+            />
+          </picture>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sign-up form end -->
+
+    <!-- Success message start -->
+    <div id="success" class="success-container hidden">
+      <img src="assets/images/icon-success.svg" alt="Tick image" />
+      <h2 class="thanks">Thanks for subscribing!</h2>
+      <p>
+        A confirmation email has been sent to
+        <b><span id="email-text-suc">ash@loremcompany.com</span></b
+        >. Please open it and click the button inside to confirm your
+        subscription.
+      </p>
+      <input class="dismiss" type="button" value="Dismiss message" />
+    </div>
+
+    <!-- Success message end -->
+  </body>
+  <script>
+    const emailtxt = document.getElementById("email-text-suc");
+    const maincont = document.getElementById("main-container");
+    const success = document.getElementById("success");
+    const errorMsg = document.getElementById("error-msg");
+    const emailPrompt = document.getElementById("email");
+    const form = document.getElementById("form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = {};
+      const fields = e.target.querySelectorAll("input");
+
+      for (const field of fields) {
+        data[field.name] = field.value;
+      }
+
+      const email = data.email.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        console.log("Empty");
+        errorMsg.classList.remove("hidden");
+        emailPrompt.classList.add("error-box");
+      } else {
+        maincont.classList.add("hidden");
+        success.classList.remove("hidden");
+        emailtxt.textContent = email;
+      }
+    });
+  </script>
+</html>
